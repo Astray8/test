@@ -57,8 +57,8 @@ def do_warning(s, name):
     for i in user:
         s.sendto(msg.encode(), user[i])
     warning[name] += 1
-    if warning[name] > 3:
-        s.sendto(b"Q",user[name])
+    if warning[name] >= 3:
+        s.sendto(b"Q", user[name])
         del user[name]  # 踢出群聊
         msg = "\n%s 被踢出聊天室" % name
         for i in user:
